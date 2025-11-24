@@ -10,6 +10,12 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <!-- Specify the Java version (21 in this case, or you can use 17 or 11 if you prefer) -->
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source> <!-- Use 21, 17, or 11 based on your JDK -->
+        <maven.compiler.target>21</maven.compiler.target> <!-- Use 21, 17, or 11 based on your JDK -->
+    </properties>
+
     <dependencies>
         <!-- JUnit for testing -->
         <dependency>
@@ -36,7 +42,18 @@
 
     <build>
         <plugins>
-            <!-- JaCoCo Plugin to generate coverage reports -->
+            <!-- Maven Compiler Plugin to specify Java version -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version> <!-- Make sure you're using the latest version -->
+                <configuration>
+                    <source>21</source> <!-- Specify source version -->
+                    <target>21</target> <!-- Specify target version -->
+                </configuration>
+            </plugin>
+
+            <!-- JaCoCo Plugin to generate code coverage reports -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -50,6 +67,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <!-- Maven Surefire Plugin for running tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
