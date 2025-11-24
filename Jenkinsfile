@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
 
         stage('Checkout') {
@@ -36,7 +35,7 @@ pipeline {
                         echo "Sonar Quality Gate Status: ${qg.status}"
 
                         if (qg.status != 'OK') {
-                            echo "❌ Quality gate FAILED (below 80%)."
+                            echo "❌   Quality gate FAILED (below 80%)."
                         } else {
                             echo "✅ Quality gate PASSED (>= 80%)."
                         }
