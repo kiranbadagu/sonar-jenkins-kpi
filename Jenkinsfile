@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh "mvn clean install -DskipTests"
+                sh "echo $WORKSPACE && ls -la && mvn clean install"
             }
         }
 
